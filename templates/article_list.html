@@ -6,12 +6,16 @@
     {% for article in article_list %}
     <div class="card">
         <div class="card-header">
-            <span <div class="font-weight-bold"> >{{ article.title }}</span>
+            <span class="font-weight-bold"> >{{ article.title }}</span>
             <span class="tex-muted">by {{ article.author }} | 
             {{ article.date }}</span>
         </div>
         <div class="card-body">
             {{ article.body }}
+        </div>
+        <div class="card-footer text-center text-muted">
+            <a href="{% url 'article_edit' article.pk%}">Edit</a>
+            <a href="{% url 'article_delete' article.pk%}">Delete</a>
         </div>
     </div>
     {% endfor %}
