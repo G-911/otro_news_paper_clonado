@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from .models import Article
@@ -25,3 +25,12 @@ class ArticleDeleteView(DeleteView):
     model = Article
     success_url = reverse_lazy('article_list')
     template_name = "article_delete.html"
+
+class ArticleCreateView(CreateView):
+    model = Article
+    template_name = "article_create.html"
+    fields = [
+        "title",
+        "body",
+        "author",
+    ]
